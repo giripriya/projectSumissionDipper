@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+#right-panel {
+  margin: 20px;
+  border-width: 2px;
+  width: 20%;
+  height: 400px;
+  float: left;
+  text-align: left;
+  padding-top: 0;
+}
+#directions-panel {
+  margin-top: 10px;
+  background-color: #FFEE77;
+  padding: 10px;
+}
+    </style>
+  </head>
+  <body>
+      
+      <div id="map"></div>
+<div id="right-panel">
+<div>
+<b>Start:</b>
+<select id="start">
+  <option value="Ludhiana, Punjab, India">Ludhiana</option>
+  <option value="Srinagar">Srinagar</option>
+  <option value="Patna, Bihar, India">Patna</option>
+  <option value="Madurai, Tamil Nadu, India">Madurai</option>
+</select>
+<br>
+<b>Waypoints:</b> <br>
+<i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+<select multiple id="waypoints">
+  <option value="Allahabad, Uttar Pradesh, India">Allahabad, UP</option>
+  <option value="Chhattisgarh, India">Chhattisgarh</option>
+  <option value="Shimla, Himachal Pradesh, India">Shimla</option>
+  <option value="Surat, Gujarat, India">Surat</option>
+  <option value="Visakhapatnam, Andhra Pradesh, India">Visakhapatnam</option>
+  <option value="Nagpur, Maharashtra, India">Nagpur</option>
+  <option value="Kolkata, West Bengal, India">Kolkata</option>
+</select>
+<br>
+<b>End:</b>
+<select id="end">
+  <option value="Bangalore, Karnataka">Bangalore, Karnataka</option>
+  <option value="New Delhi, Delhi, India">New Delhi, Delhi</option>
+  <option value="Mumbai, Maharashtra, India">Mumbai, Maharashtra</option>
+  <option value="Pune, Maharashtra, India">Pune, Maharashtra</option>
+</select>
+<br>
+  <input type="submit" id="submit">
+</div>
+<div id="directions-panel"></div>
+</div>
+    <script src="js/script.js">
+        
+        /*function initMap() {
+    var pointA = new google.maps.LatLng(51.7519, -1.2578),
+        pointB = new google.maps.LatLng(50.8429, -0.1313),
+        myOptions = {
+            zoom: 7,
+            center: pointA
+        },
+        map = new google.maps.Map(document.getElementById('map-canvas'), myOptions),
+        // Instantiate a directions service.
+        directionsService = new google.maps.DirectionsService,
+        directionsDisplay = new google.maps.DirectionsRenderer({
+            map: map
+        }),
+        markerA = new google.maps.Marker({
+            position: pointA,
+            title: "point A",
+            label: "A",
+            map: map
+        }),
+        markerB = new google.maps.Marker({
+            position: pointB,
+            title: "point B",
+            label: "B",
+            map: map
+        });
+
+    // get route from A to B
+    calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
+
+
+fromLat = markerA.getPosition().lat();
+fromLng = markerA.getPosition().lng();
+toLat = markerB.getPosition().lat();
+toLng = markerB.getPosition().lng();
+frames = [];
+      for (var percent = 0; percent < 1; percent += 0.01) {
+        curLat = fromLat + percent * (toLat - fromLat);
+        curLng = fromLng + percent * (toLng - fromLng);
+        frames.push(new google.maps.LatLng(curLat, curLng));
+      }
+      
+ markerC = new google.maps.Marker({
+            title: "point C",
+            label: "C",
+            map: map
+        });
+         move = function(marker, latlngs, index, wait, newDestination) {
+        marker.setPosition(latlngs[index]);
+        if(index != latlngs.length-1) {
+          // call the next "frame" of the animation
+          setTimeout(function() { 
+            move(marker, latlngs, index+1, wait, newDestination); 
+          }, wait);
+        }
+        else {
+          // assign new route
+          marker.position = marker.destination;
+          marker.destination = newDestination;
+        }
+      }
+
+      // begin animation, send back to origin after completion
+      move(markerA, frames, 0, 20, markerB.position);
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+    directionsService.route({
+        origin: pointA,
+        destination: pointB,
+        avoidTolls: true,
+        avoidHighways: false,
+        travelMode: google.maps.TravelMode.DRIVING
+    }, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+}
+
+initMap();
+        */
+        
+        
+    </script>
+      
+    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA06gziEwNbK1KTQAi8Bp-CAo5MlNwA5sg&callback=initMap&libraries=geometry">
+    </script>
+      <script src="js/epoly.js"></script>
+  </body>
+</html>
