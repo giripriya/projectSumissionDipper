@@ -5,7 +5,7 @@ var lastVertex = 1;
 var lengthInMeters;
 var delayer;
 var index  = -1;
-var image = ['http://www.iconninja.com/files/682/734/552/delivery-logistics-renault-vehicle-front-truck-icon.png',
+var image = ['img/delivery-logistics-renault-vehicle-front-truck-icon.png',
              'http://www.iconsplace.com/icons/preview/purple/truck-32.png',
              'http://www.iconsplace.com/icons/preview/pink/truck-32.png',
             ]
